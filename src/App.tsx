@@ -86,9 +86,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 font-sans antialiased selection:bg-[#FF7300] selection:text-white flex flex-col justify-between overflow-x-hidden">
+    <div className="min-h-screen bg-slate-900 text-slate-100 font-sans antialiased selection:bg-[#FF7300] selection:text-white flex flex-col justify-between">
       
-      <div>
+      <div className="overflow-x-hidden">
         {/* Header with Navigation */}
         <Header
           currentPage={currentPage}

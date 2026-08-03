@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, Bot, Calendar } from 'lucide-react';
 
 interface HeaderProps {
@@ -9,6 +9,13 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate, onOpenBookCall }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const navLinks = [
     { id: 'home', label: 'Home' },
@@ -26,7 +33,11 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate, onOpenB
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#0D121F]/95 backdrop-blur-md border-b border-slate-800 text-white transition-all">
+    <header className={`sticky top-0 z-50 w-full border-b text-white transition-all duration-300 ${
+      scrolled
+        ? 'bg-[#0D121F]/98 backdrop-blur-xl border-slate-700/80 shadow-2xl shadow-black/40'
+        : 'bg-[#0D121F]/95 backdrop-blur-md border-slate-800'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         {/* Brand Logo */}
