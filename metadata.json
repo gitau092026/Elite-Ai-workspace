@@ -1,0 +1,6 @@
+{
+  "name": "Elite AI Workspace",
+  "description": "Custom AI & Autonomous Agent Solutions for your business needs, streamlining workflows, customer support, sales, and operations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
