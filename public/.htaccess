@@ -1,0 +1,56 @@
+# -------------------------------------------------------
+# Elite AI Workspace — Apache / cPanel .htaccess
+# -------------------------------------------------------
+
+Options -Indexes
+Options +FollowSymLinks
+
+# ── HTTPS redirect ──────────────────────────────────────
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── SPA fallback (React Router / client-side routing) ───
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/api/
+RewriteRule . /index.html [L]
+
+# ── Long-term caching for Vite hashed assets ────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                "access plus 0 seconds"
+  ExpiresByType application/javascript   "access plus 1 year"
+  ExpiresByType text/css                 "access plus 1 year"
+  ExpiresByType image/webp               "access plus 1 year"
+  ExpiresByType image/png                "access plus 1 year"
+  ExpiresByType image/svg+xml            "access plus 1 year"
+  ExpiresByType font/woff2               "access plus 1 year"
+  ExpiresByType application/json         "access plus 0 seconds"
+</IfModule>
+
+# ── Gzip compression ────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml font/woff2
+</IfModule>
+
+# ── Security headers ────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always unset X-Powered-By
+  Header always unset Server
+</IfModule>
+
+# ── Block common attack paths ───────────────────────────
+<FilesMatch "\.(env|local|log|sh|sql|bak|git)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
