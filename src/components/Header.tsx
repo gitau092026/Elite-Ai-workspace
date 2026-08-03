@@ -38,26 +38,38 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate, onOpenB
         ? 'bg-[#0D121F]/98 backdrop-blur-xl border-slate-700/80 shadow-2xl shadow-black/40'
         : 'bg-[#0D121F]/95 backdrop-blur-md border-slate-800'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-20 flex items-center justify-between">
         
         {/* Brand Logo */}
         <div
-          className="flex items-center space-x-3 cursor-pointer group"
+          className="flex items-center space-x-2.5 cursor-pointer group"
           onClick={() => handleNavClick('home')}
         >
-          <div className="bg-[#FF7300] hover:bg-[#E66800] transition-colors px-3.5 py-2 rounded-xl flex items-center space-x-2.5 shadow-lg shadow-orange-900/30">
-            <div className="relative flex items-center justify-center w-7 h-7 bg-white/20 rounded-lg">
-              <Bot className="w-4 h-4 text-white" />
+          {/* Orange pill — icon only on mobile, icon + text on desktop */}
+          <div className="bg-[#FF7300] hover:bg-[#E66800] transition-colors px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-xl flex items-center space-x-2.5 shadow-lg shadow-orange-900/30">
+            <div className="relative flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 bg-white/20 rounded-lg flex-shrink-0">
+              <Bot className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
               <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 rounded-full animate-ping" />
             </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold text-lg sm:text-xl tracking-tight text-white leading-none">
+            {/* Text inside pill — hidden on mobile */}
+            <div className="hidden sm:flex flex-col">
+              <span className="font-extrabold text-xl tracking-tight text-white leading-none">
                 Elite AI Workspace
               </span>
               <span className="text-[10px] font-semibold text-orange-200 tracking-wider uppercase leading-tight pt-0.5">
                 AI Solutions
               </span>
             </div>
+          </div>
+
+          {/* Text outside pill — mobile only */}
+          <div className="flex flex-col sm:hidden">
+            <span className="font-extrabold text-sm tracking-tight text-white leading-none">
+              Elite AI Workspace
+            </span>
+            <span className="text-[9px] font-semibold text-orange-300 tracking-wider uppercase leading-tight pt-0.5">
+              AI Solutions
+            </span>
           </div>
         </div>
 
@@ -81,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate, onOpenB
           })}
         </nav>
 
-        {/* Header Right Action - Book Call ONLY */}
+        {/* Desktop Book Call button */}
         <div className="hidden md:flex items-center space-x-4">
           <button
             onClick={onOpenBookCall}
@@ -92,25 +104,16 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate, onOpenB
           </button>
         </div>
 
-        {/* Mobile Hamburger Toggle & Mobile Book Call */}
-        <div className="flex md:hidden items-center space-x-3">
-          <button
-            onClick={onOpenBookCall}
-            className="bg-[#FF7300] text-white px-3.5 py-2 rounded-lg text-xs font-bold flex items-center space-x-1"
-          >
-            <Calendar className="w-3.5 h-3.5" />
-            <span>Book Call</span>
-          </button>
-
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-slate-300 hover:text-white p-2 focus:outline-none"
-            aria-label="Toggle Navigation"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+        {/* Mobile — hamburger only (Book Call is inside the drawer) */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="flex md:hidden text-slate-300 hover:text-white p-2 focus:outline-none"
+          aria-label="Toggle Navigation"
+        >
+          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
       </div>
+
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
