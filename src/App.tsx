@@ -88,14 +88,14 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100 font-sans antialiased selection:bg-[#FF7300] selection:text-white flex flex-col justify-between">
       
-      <div className="overflow-x-hidden">
-        {/* Header with Navigation */}
-        <Header
-          currentPage={currentPage}
-          onNavigate={handleNavigate}
-          onOpenBookCall={() => setBookCallOpen(true)}
-        />
+      {/* Header must be OUTSIDE any overflow wrapper for sticky to work */}
+      <Header
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
+        onOpenBookCall={() => setBookCallOpen(true)}
+      />
 
+      <div className="overflow-x-hidden">
         {/* Main Content Area - Rendered Independently per Page */}
         <main className="w-full">
           {renderCurrentPage()}
