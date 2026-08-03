@@ -27,45 +27,45 @@ export default function App() {
     switch (currentPage) {
       case 'services':
         return (
-          <ScrollReveal direction="up" key="services">
+          <div key="services">
             <ServicesSection onOpenBookCall={() => setBookCallOpen(true)} />
             <CtaBanner onOpenBookCall={() => setBookCallOpen(true)} />
-          </ScrollReveal>
+          </div>
         );
 
       case 'templates':
         return (
-          <ScrollReveal direction="up" key="templates">
+          <div key="templates">
             <TemplatesSection onOpenBookCall={() => setBookCallOpen(true)} />
             <CtaBanner onOpenBookCall={() => setBookCallOpen(true)} />
-          </ScrollReveal>
+          </div>
         );
 
       case 'pricing':
         return (
-          <ScrollReveal direction="up" key="pricing">
+          <div key="pricing">
             <PricingSection onOpenBookCall={() => setBookCallOpen(true)} />
             <CtaBanner onOpenBookCall={() => setBookCallOpen(true)} />
-          </ScrollReveal>
+          </div>
         );
 
       case 'about':
         return (
-          <ScrollReveal direction="up" key="about">
+          <div key="about">
             <AboutSection onOpenBookCall={() => setBookCallOpen(true)} />
             <CtaBanner onOpenBookCall={() => setBookCallOpen(true)} />
-          </ScrollReveal>
+          </div>
         );
 
       case 'faqs':
         return (
-          <ScrollReveal direction="up" key="faqs">
+          <div key="faqs">
             <FaqSection
               onOpenBookCall={() => setBookCallOpen(true)}
               onOpenWhatsApp={() => setWhatsAppOpen(true)}
             />
             <CtaBanner onOpenBookCall={() => setBookCallOpen(true)} />
-          </ScrollReveal>
+          </div>
         );
 
       case 'home':
