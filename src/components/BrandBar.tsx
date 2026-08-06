@@ -65,15 +65,15 @@ export const BrandBar: React.FC = () => {
   const tickerItems = [...brands, ...brands];
 
   return (
-    <section className="bg-[#0A0E1A] border-y border-slate-800/80 py-8 relative overflow-hidden">
+    <section className="bg-[#111827] border-y border-slate-700/60 py-8 relative overflow-hidden">
       {/* Gradient fade overlays on left and right edges */}
-      <div className="absolute top-0 bottom-0 left-0 w-20 bg-gradient-to-r from-[#0A0E1A] to-transparent z-20 pointer-events-none" />
-      <div className="absolute top-0 bottom-0 right-0 w-20 bg-gradient-to-l from-[#0A0E1A] to-transparent z-20 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 left-0 w-20 bg-gradient-to-r from-[#111827] to-transparent z-20 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 right-0 w-20 bg-gradient-to-l from-[#111827] to-transparent z-20 pointer-events-none" />
 
       {/* Title Badge */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-6">
         <div className="flex items-center justify-center">
-          <div className="inline-flex items-center space-x-2 bg-slate-900/90 border border-slate-800 rounded-full px-4 py-1 text-xs font-mono font-bold text-orange-400 shadow-inner">
+          <div className="inline-flex items-center space-x-2 bg-slate-800/90 border border-slate-700 rounded-full px-4 py-1 text-xs font-mono font-bold text-orange-400 shadow-inner">
             <span className="text-[#FF7300]">//</span>
             <span>Built on</span>
           </div>
@@ -86,7 +86,7 @@ export const BrandBar: React.FC = () => {
           {tickerItems.map((brand, idx) => (
             <div
               key={`${brand.name}-${idx}`}
-              className="flex-shrink-0 flex items-center space-x-3 px-5 py-3 rounded-xl bg-slate-900/80 border border-slate-800/90 hover:border-orange-500/50 hover:bg-slate-900 transition-all cursor-pointer group shadow-sm"
+              className="flex-shrink-0 flex items-center space-x-3 px-5 py-3 rounded-xl bg-slate-800/70 border border-slate-700/80 hover:border-orange-500/50 hover:bg-slate-800 transition-all cursor-pointer group shadow-sm"
             >
               <img
                 src={brand.logoUrl}

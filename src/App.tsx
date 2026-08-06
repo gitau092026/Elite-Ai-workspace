@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { BrandBar } from './components/BrandBar';
 import { ServicesSection } from './components/ServicesSection';
 import { TemplatesSection } from './components/TemplatesSection';
+import { TemplateDetailPage } from './components/TemplateDetailPage';
 import { PricingSection } from './components/PricingSection';
 import { AboutSection } from './components/AboutSection';
 import { FaqSection } from './components/FaqSection';
@@ -12,14 +13,24 @@ import { Footer } from './components/Footer';
 import { BookCallModal } from './components/BookCallModal';
 import { WhatsAppWidget } from './components/WhatsAppWidget';
 import { ScrollReveal } from './components/ScrollReveal';
+import { MobileNavBar } from './components/MobileNavBar';
+import { AgentTemplate } from './data/solutionsData';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
   const [bookCallOpen, setBookCallOpen] = useState(false);
   const [whatsAppOpen, setWhatsAppOpen] = useState(false);
+  const [selectedTemplate, setSelectedTemplate] = useState<AgentTemplate | null>(null);
 
   const handleNavigate = (page: string) => {
     setCurrentPage(page);
+    setSelectedTemplate(null);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  const handleOpenTemplate = (template: AgentTemplate) => {
+    setSelectedTemplate(template);
+    setCurrentPage('template-detail');
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
@@ -33,10 +44,22 @@ export default function App() {
           </div>
         );
 
+      case 'template-detail':
+        return selectedTemplate ? (
+          <TemplateDetailPage
+            template={selectedTemplate}
+            onBack={() => handleNavigate('templates')}
+            onOpenBookCall={() => setBookCallOpen(true)}
+          />
+        ) : null;
+
       case 'templates':
         return (
           <div key="templates">
-            <TemplatesSection onOpenBookCall={() => setBookCallOpen(true)} />
+            <TemplatesSection
+              onOpenBookCall={() => setBookCallOpen(true)}
+              onOpenTemplate={handleOpenTemplate}
+            />
             <CtaBanner onOpenBookCall={() => setBookCallOpen(true)} />
           </div>
         );
@@ -120,6 +143,12 @@ export default function App() {
       <WhatsAppWidget
         isOpen={whatsAppOpen}
         onClose={() => setWhatsAppOpen(false)}
+      />
+
+      {/* Mobile bottom navigation bar */}
+      <MobileNavBar
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
       />
 
     </div>

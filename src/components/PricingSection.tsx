@@ -9,8 +9,8 @@ interface PricingSectionProps {
 
 export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBookCall }) => {
   return (
-    <section id="pricing" className="py-20 bg-slate-900 text-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="pricing" className="py-14 sm:py-20 bg-[#111827] text-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         
         {/* Section Title */}
         <ScrollReveal direction="up" threshold={0.1}>
@@ -19,7 +19,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBookCall }
               <Sparkles className="w-3.5 h-3.5" />
               <span>Transparent Investment</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
               Flexible AI Agent Solution Pricing
             </h2>
             <p className="text-slate-400 text-base leading-relaxed">
@@ -29,14 +29,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBookCall }
         </ScrollReveal>
 
         {/* 3 Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
           {PRICING_PLANS.map((plan, index) => (
             <ScrollReveal key={plan.id} direction="scale" delayMs={index * 120} threshold={0.08}>
               <div
-                className={`rounded-3xl p-8 flex flex-col justify-between relative transition-all duration-300 h-full ${
+                className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative transition-all duration-300 h-full ${
                   plan.highlighted
-                    ? 'bg-gradient-to-b from-[#1A233A] to-[#121929] border-2 border-[#FF7300] shadow-2xl shadow-orange-950/30 scale-105 z-10'
-                    : 'bg-[#131B2E] border border-slate-800'
+                    ? 'bg-gradient-to-b from-[#1e3056] to-[#172040] border-2 border-[#FF7300] shadow-2xl shadow-orange-950/30 md:scale-105 z-10'
+                    : 'bg-[#1a2744] border border-slate-700'
                 }`}
               >
               {plan.badge && (
@@ -53,7 +53,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBookCall }
                 </div>
 
                 {/* Price Display */}
-                <div className="border-y border-slate-800 py-4">
+                <div className="border-y border-slate-700 py-4">
                   <div className="flex items-baseline space-x-1">
                     <span className="text-3xl sm:text-4xl font-extrabold text-white">{plan.price}</span>
                   </div>
@@ -77,7 +77,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBookCall }
               </div>
 
               {/* Action Button */}
-              <div className="pt-8 mt-6 border-t border-slate-800">
+              <div className="pt-8 mt-6 border-t border-slate-700">
                 <button
                   onClick={onOpenBookCall}
                   className={`w-full font-bold text-sm py-3.5 rounded-xl transition-all shadow-lg flex items-center justify-center space-x-2 ${
@@ -97,17 +97,17 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenBookCall }
 
         {/* Enterprise Guarantee Footer */}
         <ScrollReveal direction="up" delayMs={100} threshold={0.1}>
-        <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-          <div className="flex items-center space-x-2">
-            <ShieldCheck className="w-5 h-5 text-emerald-400" />
+        <div className="bg-[#1a2744] p-5 sm:p-6 rounded-2xl border border-slate-700/80 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-slate-300 gap-4">
+          <div className="flex items-start sm:items-center space-x-2">
+            <ShieldCheck className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5 sm:mt-0" />
             <span>100% Satisfaction Guarantee: We test and optimize prompt accuracy until your target metric is met.</span>
           </div>
           <button
             onClick={onOpenBookCall}
-            className="text-orange-400 hover:text-orange-300 font-bold whitespace-nowrap flex items-center space-x-1"
+            className="text-orange-400 hover:text-orange-300 font-bold flex items-center space-x-1 flex-shrink-0"
           >
             <span>Have custom security requirements? Talk to us</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
           </button>
         </div>
         </ScrollReveal>

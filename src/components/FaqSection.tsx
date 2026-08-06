@@ -16,7 +16,7 @@ export const FaqSection: React.FC<FaqSectionProps> = () => {
   };
 
   return (
-    <section id="faqs" className="py-20 bg-slate-900 text-white relative">
+    <section id="faqs" className="py-20 bg-[#111827] text-white relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Title */}
@@ -44,8 +44,8 @@ export const FaqSection: React.FC<FaqSectionProps> = () => {
               <div
                 className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen
-                    ? 'bg-[#131B2E] border-[#FF7300]/60 shadow-xl'
-                    : 'bg-[#131B2E]/60 border-slate-800 hover:border-slate-700'
+                    ? 'bg-[#1e2d47] border-[#FF7300]/60 shadow-xl'
+                    : 'bg-[#1a2744]/80 border-slate-700 hover:border-slate-600'
                 }`}
               >
                 <button
@@ -65,7 +65,7 @@ export const FaqSection: React.FC<FaqSectionProps> = () => {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4 animate-fadeIn">
+                  <div className="px-6 pb-6 text-sm text-slate-200 leading-relaxed border-t border-slate-700/80 pt-4 animate-fadeIn">
                     <p>{faq.answer}</p>
                   </div>
                 )}

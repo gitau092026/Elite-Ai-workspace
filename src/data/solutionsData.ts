@@ -132,6 +132,36 @@ export const AI_SERVICES: AIService[] = [
     ],
     popularUseCases: ['HR & Policy Search Bot', 'Executive Briefing Generator', 'Internal SOP Query Assistant'],
     deploymentTime: '3 - 5 Days'
+  },
+  {
+    id: 'fullstack-web-dev',
+    iconName: 'Globe',
+    title: 'Full Stack Web Development',
+    tagline: 'End-to-end web apps built for performance, scale & conversion',
+    description: 'We design and build high-performance web applications from ground up — covering everything from UI/UX design and frontend engineering to backend APIs, databases, and cloud deployment.',
+    benefits: [
+      'React, Next.js & TypeScript frontends with blazing-fast load times',
+      'Scalable REST & GraphQL APIs with Node.js or Python backends',
+      'Secure database design (PostgreSQL, MongoDB, Supabase)',
+      'CI/CD pipelines, cloud hosting & full post-launch support'
+    ],
+    popularUseCases: ['SaaS Product MVP Build', 'Business Landing Page & CMS', 'Client Portal & Dashboard Development'],
+    deploymentTime: '7 - 10 Days'
+  },
+  {
+    id: 'mobile-app-dev',
+    iconName: 'Smartphone',
+    title: 'Mobile App Development',
+    tagline: 'Cross-platform iOS & Android apps built to perform and convert',
+    description: 'We design and develop high-performance mobile applications using React Native and Flutter — delivering a single codebase that runs natively on both iOS and Android with pixel-perfect UI and seamless UX.',
+    benefits: [
+      'React Native & Flutter cross-platform development',
+      'Custom UI/UX design tailored to your brand identity',
+      'Backend API integration, push notifications & analytics',
+      'Full App Store & Google Play submission support'
+    ],
+    popularUseCases: ['Customer-facing Mobile App', 'On-demand Delivery Platform', 'SaaS Mobile Companion App'],
+    deploymentTime: '10 - 21 Days'
   }
 ];
 
@@ -219,6 +249,34 @@ export const AGENT_TEMPLATES: AgentTemplate[] = [
     demoInput: '"What is our travel reimbursement policy for domestic flights?"',
     demoOutput: '"According to SOP-2025 (Section 4.2), domestic flights booked at least 14 days in advance up to $450 are auto-approved. Submit receipts via expense portal within 7 days."',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop'
+  },
+  {
+    id: 'tpl-saas-webapp',
+    title: 'SaaS Web App Starter',
+    category: 'Web Development',
+    tagline: 'Full-stack Next.js SaaS boilerplate with auth, billing & dashboard',
+    description: 'Production-ready web application template with user authentication, Stripe billing, role-based dashboards, and a PostgreSQL backend — ready to customise and deploy.',
+    badge: 'Ship Fast',
+    features: ['Auth & User Management', 'Stripe Subscription Billing', 'Admin & User Dashboards', 'PostgreSQL + Prisma ORM'],
+    integrations: ['Next.js', 'Supabase', 'Stripe', 'Vercel'],
+    roiMetric: '80% Faster Launch',
+    demoInput: 'New user signs up and selects the "Pro" plan during onboarding.',
+    demoOutput: 'Account created, Stripe subscription activated, role assigned as "Pro User", and personalised dashboard loaded — all within 3 seconds.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop'
+  },
+  {
+    id: 'tpl-mobile-mvp',
+    title: 'Mobile App MVP Template',
+    category: 'Mobile Development',
+    tagline: 'React Native cross-platform starter with auth, navigation & API layer',
+    description: 'A complete React Native starter kit that runs on iOS and Android, featuring authentication, bottom-tab navigation, push notifications, and a REST API integration layer.',
+    badge: 'Cross-Platform',
+    features: ['iOS & Android in One Codebase', 'Push Notification Setup', 'Auth & Secure Token Storage', 'Offline-First Architecture'],
+    integrations: ['React Native', 'Expo', 'Firebase', 'REST API'],
+    roiMetric: '2x Faster to Market',
+    demoInput: 'User opens the app on iPhone for the first time and taps "Get Started".',
+    demoOutput: 'Onboarding flow completes, biometric login enabled, home feed loaded with personalised content via API — smooth 60fps experience throughout.',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop'
   }
 ];
 

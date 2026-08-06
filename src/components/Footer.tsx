@@ -26,11 +26,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBookCall, onOp
   };
 
   return (
-    <footer id="contact" className="bg-[#0D121F] text-slate-300 pt-16 pb-8 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <footer id="contact" className="bg-[#0D121F] text-slate-300 pt-12 sm:pt-16 pb-8 border-t border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         
         {/* Top Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
           
           {/* Brand Info (5 cols) */}
           <div className="lg:col-span-5 space-y-5">
@@ -122,17 +122,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBookCall, onOp
         </div>
 
         {/* Bottom Legal & Copyright Row */}
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-400">
+        <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 text-xs text-slate-400">
           
           {/* Legal Links */}
-          <div className="flex items-center space-x-6 font-medium">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-5 gap-y-2 font-medium">
             <a href="#terms" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="#privacy" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#security" className="hover:text-white transition-colors">Security & SOC2</a>
           </div>
 
           {/* Copyright */}
-          <div className="text-center md:text-right text-slate-400">
+          <div className="text-center sm:text-right text-slate-400">
             Copyright © 2025 Elite AI Workspace. All rights reserved.
           </div>
 
